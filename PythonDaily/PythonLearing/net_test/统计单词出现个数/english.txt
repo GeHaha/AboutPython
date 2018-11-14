@@ -1,0 +1,14 @@
+import serial
+import serialtools listports
+
+portlist  listserialtoolslistportscomports
+
+if lenportlist  0
+    prinThe Serial port cant find
+
+else
+    portlis  listportlist
+    portserial  portlist00
+    ser  serialSerialportserial9600timeout  
+    print check which port wa really used ser name
+     

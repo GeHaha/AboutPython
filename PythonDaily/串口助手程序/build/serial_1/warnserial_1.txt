@@ -1,0 +1,17 @@
+missing module named resource - imported by posix, H:\Python上位机\串口助手程序\serial_1.py
+missing module named posix - imported by os, H:\Python上位机\串口助手程序\serial_1.py
+missing module named _posixsubprocess - imported by subprocess, H:\Python上位机\串口助手程序\serial_1.py
+missing module named 'org.python' - imported by pickle, H:\Python上位机\串口助手程序\serial_1.py, xml.sax
+missing module named readline - imported by cmd, code, pdb, H:\Python上位机\串口助手程序\serial_1.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, H:\Python上位机\串口助手程序\serial_1.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, H:\Python上位机\串口助手程序\serial_1.py
+missing module named _winreg - imported by platform, H:\Python上位机\串口助手程序\serial_1.py
+missing module named _scproxy - imported by urllib.request
+missing module named java - imported by platform, H:\Python上位机\串口助手程序\serial_1.py
+missing module named 'java.lang' - imported by platform, H:\Python上位机\串口助手程序\serial_1.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, H:\Python上位机\串口助手程序\serial_1.py
+missing module named termios - imported by tty, H:\Python上位机\串口助手程序\serial_1.py, getpass
+missing module named grp - imported by shutil, tarfile, H:\Python上位机\串口助手程序\serial_1.py
+missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, H:\Python上位机\串口助手程序\serial_1.py, netrc, getpass
+missing module named _dummy_threading - imported by dummy_threading, H:\Python上位机\串口助手程序\serial_1.py
+missing module named org - imported by copy, H:\Python上位机\串口助手程序\serial_1.py

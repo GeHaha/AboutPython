@@ -25,7 +25,7 @@ plt.show()
 print('开始仿真')
 
 #读取文件
-path = "H:\Python上位机\读取PID偏差后画图\XY数据.txt"
+path = "XY数据.txt"
 file = open(path,'r')
 
 #读取文件中的内容放到列表中

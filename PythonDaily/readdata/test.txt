@@ -1,0 +1,4 @@
+distance:123 , intensity:240
+distance:234 , intensity:223
+distance:223 , intensity:112 
+distance:255 , intensity:112 

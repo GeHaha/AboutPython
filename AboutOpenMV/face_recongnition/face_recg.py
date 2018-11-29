@@ -9,7 +9,7 @@ sensor.set_windowing((92,112))
 sensor.skip_frames(10)
 sensor.skip_frames(time = 5000)
 
-clock = time.clock()
+
 
 #SUB = "S1"
 NUM_SUBJECTS = 6 # 图像库中不同人数、一共六人
@@ -18,7 +18,7 @@ NUM_SUBJECTS = 20 # 每人有20张样本图片
 #拍摄当前人
 img = sensor.snapshot()
 #img = img.Image("singtown/%s/1.pgm"%(SUB))
-d0 = img.find_lbp((0,0.img.width(),img.height()))
+d0 = img.find_lbp((0,0,img.width(),img.height()))
 #d0为当前人脸的lbp特征
 img = None
 pmin = 999999
@@ -28,7 +28,7 @@ def min(pmin,a,s):
     if a < pmin:
         pmin = a
         num = s
-     return pmin
+    return pmin
 
 for s in range(1,NUM_SUBJECTS +1):
     dist = 0

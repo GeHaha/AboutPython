@@ -18,3 +18,6 @@ plt.xticks([]),plt.yticks([])
 plt.subplot(122),plt.imshow(dst),plt.title('Averaging')
 plt.xticks([]),plt.yticks([])
 plt.show()
+
+
+x

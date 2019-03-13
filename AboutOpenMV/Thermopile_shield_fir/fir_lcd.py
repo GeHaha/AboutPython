@@ -19,6 +19,8 @@ if (sensor.get_id() == sensor.OV2640):
 
 # Initialize the thermal sensor
 fir.init()
+# Initialize the thermal sensor
+lcd.init()
 
 #fps clock
 clock = time.clock()
@@ -38,6 +40,7 @@ while(True):
     image.draw_string(0, 0, "Ta: %0.2f"%ta, color = (0xFF, 0x00, 0x00))
     image.draw_string(0, 8, "To min: %0.2f"%to_min, color = (0xFF, 0x00, 0x00))
     image.draw_string(0, 16, "To max: %0.2f"%to_max, color = (0xFF, 0x00, 0x00))
+
 
 
 

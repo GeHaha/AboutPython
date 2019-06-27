@@ -5,10 +5,7 @@ Created on Fri May 31 13:59:22 2019
 @author: Gehaha
 """
 
-# coding=utf-8
- 
 '''
-作者:Jairus Chan
 程序:多项式曲线拟合算法
 '''
 import matplotlib.pyplot as plt
@@ -25,8 +22,7 @@ order=9
 #生成曲线上的各个点
 x = numpy.arange(-1,1,0.02)
 y = [((a*a-1)*(a*a-1)*(a*a-1)+0.5)*numpy.sin(a*2) for a in x]
-#ax.plot(x,y,color='r',linestyle='-',marker='')
-#,label="(a*a-1)*(a*a-1)*(a*a-1)+0.5"
+
  
 #生成的曲线上的各个点偏移一下，并放入到xa,ya中去
 i=0
@@ -35,16 +31,9 @@ ya=[]
 for xx in x:
 	yy=y[i]
 	d=float(random.randint(60,140))/100
-	#ax.plot([xx*d],[yy*d],color='m',linestyle='',marker='.')
 	i+=1
 	xa.append(xx*d)
 	ya.append(yy*d)
- 
-'''for i in range(0,5):
-	xx=float(random.randint(-100,100))/100
-	yy=float(random.randint(-60,60))/100
-	xa.append(xx)
-	ya.append(yy)'''
  
 ax.plot(xa,ya,color='m',linestyle='',marker='.')
  
@@ -63,8 +52,7 @@ for i in range(0,order+1):
 		matA1.append(tx)
 	matA.append(matA1)
  
-#print(len(xa))
-#print(matA[0][0])
+
 matA=numpy.array(matA)
  
 matB=[]

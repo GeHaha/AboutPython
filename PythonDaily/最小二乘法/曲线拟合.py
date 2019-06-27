@@ -21,6 +21,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
+
+
 '''
 高斯列主消元算法
 '''
@@ -29,19 +31,23 @@ def get_augmented_matrix(matrix, b):
     row, col = np.shape(matrix)
     matrix = np.insert(matrix, col, values=b, axis=1)
     return matrix
+
 # 取出增广矩阵的系数矩阵（第一列到倒数第二列）
 def get_matrix(a_matrix):
     return a_matrix[:, :a_matrix.shape[1] - 1]
+
 # 选列主元，在第k行后的矩阵里，找出最大值和其对应的行号和列号
 def get_pos_j_max(matrix, k):
     max_v = np.max(matrix[k:, :])
     pos = np.argwhere(matrix == max_v)
     i, _ = pos[0]
     return i, max_v
+
 # 矩阵的第k行后，行交换
 def exchange_row(matrix, r1, r2, k):
     matrix[[r1, r2], k:] = matrix[[r2, r1], k:]
     return matrix
+
 # 消元计算(初等变化)
 def elimination(matrix, k):
     row, col = np.shape(matrix)
@@ -49,6 +55,7 @@ def elimination(matrix, k):
         m_ik = matrix[i][k] / matrix[k][k]
         matrix[i] = -m_ik * matrix[k] + matrix[i]
     return matrix
+
 # 回代求解
 def backToSolve(a_matrix):
     matrix = a_matrix[:, :a_matrix.shape[1] - 1]  # 得到系数矩阵
@@ -67,6 +74,7 @@ def backToSolve(a_matrix):
             xidx -= 1
         x[xidx] = (b_matrix[i] - sij) / matrix[i][i]
     return x
+
 # 求解非齐次线性方程组：ax=b
 def solve_NLQ(a, b):
     a_matrix = get_augmented_matrix(a, b)
@@ -97,6 +105,7 @@ def init_fx_data():
         z = np.random.randint(low=-10, high=10) / 100  # 加入噪点
         ys1.append(ys[i] + z)
     return xs, ys1
+
 # 计算最小二乘法当前的误差
 def last_square_current_loss(xs, ys, A):
     error = 0.0
@@ -106,6 +115,7 @@ def last_square_current_loss(xs, ys, A):
             y1 += A[k] * xs[i] ** k
         error += (ys[i] - y1) ** 2
     return error
+
 # 迭代解法：最小二乘法+梯度下降法
 def last_square_fit_curve_Gradient(xs, ys, order, iternum=1000, learn_rate=0.001):
     A = [0.0] * (order + 1)
@@ -123,6 +133,8 @@ def last_square_fit_curve_Gradient(xs, ys, order, iternum=1000, learn_rate=0.001
             error = last_square_current_loss(xs=xs, ys=ys, A=A)
             print('最小二乘法+梯度下降法：第{}次迭代，误差下降为：{}'.format(r, error))
     return A
+
+
 # 数学解法：最小二乘法+求解线性方程组
 def last_square_fit_curve_Gauss(xs, ys, order):
     X, Y = [], []
@@ -149,6 +161,7 @@ def last_square_fit_curve_Gauss(xs, ys, order):
     error = last_square_current_loss(xs=xs, ys=ys, A=A)
     print('最小二乘法+求解线性方程组，误差下降为：{}'.format(error))
     return A
+
 # 可视化多项式曲线拟合结果
 def draw_fit_curve(xs, ys, A, order):
     fig = plt.figure()
@@ -164,6 +177,8 @@ def draw_fit_curve(xs, ys, A, order):
     plt.title(s='最小二乘法拟合多项式N={}的函数曲线f(x)'.format(order))
     plt.legend()
     plt.show()
+    
+    
 if __name__ == '__main__':
     order = 10  # 拟合的多项式项数
     xs, ys = init_fx_data()  # 曲线数据

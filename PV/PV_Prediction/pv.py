@@ -97,7 +97,9 @@ def generate_train_data(train_data, test_data, poly=False, select=False):
     polynm = None
     if poly:
         from sklearn.preprocessing import PolynomialFeatures
-        polynm = PolynomialFeatures(degree=2, interaction_only=True)
+        polynm = PolynomialFeatures(degree=2, interaction_only=True) 
+        #生成多项式特征，X 的特征已经从 (X_1, X_2) 转换为 (1, X1, X2, X1**2, X1*X2, X2**2)
+        # interaction_only 是只需要特征间的交互项
         X = polynm.fit_transform(X)
         sub_data = polynm.transform(sub_data)
         
@@ -122,7 +124,7 @@ def cal_score(mse):
     
     
 #  定义交叉验证函数  
-def cross_validation_test(models, train_X_data, train_y_data, cv=5):
+def cross_validation_test(models, train_X_data, train_y_data, cv=5): #交叉验证是5折
     model_name, mse_avg, score_avg = [], [], []
     for i, model in enumerate(models):
         print(i + 1,'- Model:', str(model).split('(')[0])
@@ -353,6 +355,7 @@ class Stacker(object):
     
     # X: 原始训练集, y: 原始训练集真实值, predict_data: 原始待预测数据
     def fit_predict(self, X, y, predict_data):
+        
         X = np.array(X)
         y = np.array(y)
         T = np.array(predict_data)
